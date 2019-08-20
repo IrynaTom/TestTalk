@@ -1,5 +1,6 @@
 package com.itos.talktalk.test;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import java.net.*;
@@ -15,6 +16,7 @@ public class loginViaAPI {
 
         URL apiAuth = new URL("https://localhost:8080/api/v1/auth");
         HttpsURLConnection con = (HttpsURLConnection) apiAuth.openConnection();
+
 
         @When("^I send a POST request to the address$")
         public void SendPOST() {
