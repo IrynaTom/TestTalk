@@ -11,13 +11,15 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class loginViaAPI  {
 
-      String data = URLEncoder.encode("key1", "UTF-8") + "=" + URLEncoder.encode("value1", "UTF-8");
+    public loginViaAPI() throws IOException {
+        String data = URLEncoder.encode("key1", "UTF-8") + "=" + URLEncoder.encode("value1", "UTF-8");
         data += "&" + URLEncoder.encode("key2", "UTF-8") + "=" + URLEncoder.encode("value2", "UTF-8");
         URL apiAuth = new URL("https://localhost:8080/api/v1/auth");
         HttpsURLConnection con = (HttpsURLConnection) apiAuth.openConnection();
+    }
 
-        @When("^I send a POST request to the address$")
-        public void SendPOST()  throws IOException{
+    @When("^I send a POST request to the address$")
+        public void SendPOST(String data, HttpsURLConnection con)  throws IOException{
           //  URLConnection auth = apiAuth.openConnection();
             con.setDoOutput(true);
             OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
@@ -26,7 +28,7 @@ public class loginViaAPI  {
             wr.close();
         }
         @Then("I get a response")
-        public void GetResponse()  throws IOException{
+        public void GetResponse(URL apiAuth,HttpsURLConnection con)  throws IOException{
             int responseCode = con.getResponseCode();
             System.out.println("\nSending 'POST' request to URL : " + apiAuth);
             System.out.println("Response Code : " + responseCode);

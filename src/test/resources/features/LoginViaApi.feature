@@ -3,8 +3,6 @@ Feature: Testing a REST API
 
 Scenario: Can send POST request and get response
 
-Given the following URL
-
 When I send a POST request to the address
 
 Then I get a response
