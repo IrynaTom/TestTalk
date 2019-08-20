@@ -1,5 +1,7 @@
 package com.itos.talktalk.test;
 
+import io.cucumber.java.en.Given;
+
 import java.net.*;
 import java.io.*;
 
@@ -7,11 +9,16 @@ public class loginViaAPI {
 
     public static void main(String[] args) throws Exception {
 
-        // Construct data
+
+        @Given("I have Construct data")
+        public void сonstructData() {
+
+
+        }
+
         String data = URLEncoder.encode("key1", "UTF-8") + "=" + URLEncoder.encode("value1", "UTF-8");
         data += "&" + URLEncoder.encode("key2", "UTF-8") + "=" + URLEncoder.encode("value2", "UTF-8");
 
-        // Send data
         URL apiAuth = new URL("https://localhost:8080/api/v1/auth");
         URLConnection auth = apiAuth.openConnection();
         auth.setDoOutput(true);
