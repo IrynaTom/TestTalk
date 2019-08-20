@@ -1,6 +1,9 @@
 package com.itos.talktalk.test;
 
+
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
 
 import java.net.*;
 import java.io.*;

@@ -1,9 +1,7 @@
-Feature: Login Via Api
+Feature: Testing a REST API
 
-Scenario: Login functionality exists
+Scenario: Can Login Via Api
 
-Given I have Construct data
-
-When I send a post request to the address
+When I send a POST request to the address
 
 Then I get a response
